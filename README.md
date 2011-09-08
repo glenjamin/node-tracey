@@ -20,12 +20,12 @@ Or you can pass an exception to parse its stack frames
     try {
         // .. something bad
     } catch (ex) {
-        var error_stack = tracy(ex)
+        var error_stack = tracy(ex);
     }
 
 Tracy returns an array of frame objects with the following properties:
 
-    * path   - the full file path of the executing code
-    * line   - the line number of the executing code
-    * column - the column number of the executing code
-    * func   - the name of the function call
+ * path   - the full file path of the executing code
+ * line   - the line number of the executing code
+ * column - the column number of the executing code
+ * func   - the name of the function call
