@@ -6,11 +6,11 @@ nodespec.describe("tracey()", function() {
     this.subject("trace", function() { return tracey() });
     this.example("should return a stack trace", function() {
         this.assert.ok(this.trace instanceof Array);
-        var trace1 = this.trace[0];
-        this.assert.ok(trace1.path);
-        this.assert.ok(trace1.line);
-        this.assert.ok(trace1.column);
-        this.assert.ok(trace1.func);
+        var frame = this.trace[0];
+        this.assert.ok(frame.path);
+        this.assert.ok(frame.line);
+        this.assert.ok(frame.column);
+        this.assert.ok(frame.func);
     });
 
     this.context("when passed an exception", function() {
@@ -18,12 +18,28 @@ nodespec.describe("tracey()", function() {
         this.subject("ex", function() { return new Error(); });
         this.example("should return a stack trace", function() {
             this.assert.ok(this.trace instanceof Array);
-            var trace1 = this.trace[0];
-            this.assert.ok(trace1.path);
-            this.assert.equal(trace1.line, 18);
-            this.assert.equal(trace1.column, 48);
-            this.assert.ok(trace1.func);
+            var frame = this.trace[0];
+            this.assert.ok(frame.path);
+            this.assert.equal(frame.line, 18);
+            this.assert.equal(frame.column, 48);
+            this.assert.ok(frame.func);
         });
+    });
+
+    this.context("when using bind", function() {
+        this.subject("trace", function() {
+            function foo(){ return tracey() };
+            var bar = foo.bind(this);
+            return bar();
+        });
+        this.example("should return a stack trace", function() {
+            this.assert.ok(this.trace instanceof Array);
+            var frame = this.trace[1];
+            this.assert.equal(frame.path, null);
+            this.assert.equal(frame.line, null);
+            this.assert.equal(frame.column, null);
+            this.assert.equal(frame.func, 'bound function');
+        })
     });
 });
 nodespec.exec();
