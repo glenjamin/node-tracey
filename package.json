@@ -1,28 +1,28 @@
 {
   "author": "Glen Mailer <glenjamin@gmail.com>",
-  "name": "tracy",
+  "name": "tracey",
   "description": "Get a parsed stack trace for the current location",
-  "homepage": "http://github.com/glenjamin/node-tracy",
+  "homepage": "http://github.com/glenjamin/node-tracey",
   "version": "0.1.0DEV",
   "repository": {
     "type": "git",
-    "url": "http://github.com/glenjamin/node-tracy.git"
+    "url": "http://github.com/glenjamin/node-tracey.git"
   },
   "licenses": [
     {
       "type" : "MIT",
-      "url" : "https://github.com/glenjamin/node-tracy/master/LICENSE"
+      "url" : "https://github.com/glenjamin/node-tracey/master/LICENSE"
     }
   ],
-  "main": "./lib/tracy.js",
+  "main": "./lib/tracey.js",
   "scripts": {
-    "test": "node ./spec/tracy-spec.js"
+    "test": "node ./spec/tracey-spec.js"
   },
   "engines": {
     "node": "~v0.4.10"
   },
   "dependencies": {},
   "devDependencies": {
-    "nodespec": "0.0.x"
+    "nodespec": "0.1.x"
   }
 }

@@ -1,18 +1,18 @@
-# Tracy
+# Tracey
 
 Get a nice parsed stack trace from the calling location
 
 ## Install
 
-npm install tracy
+npm install tracey
 
 ## Usage
 
 Capturing the current call stack
 
-    var tracy = require('tracy');
+    var tracey = require('tracey');
 
-    var stack = tracy();
+    var stack = tracey();
     console.log(stack);
 
 Or you can pass an exception to parse its stack frames
@@ -20,7 +20,7 @@ Or you can pass an exception to parse its stack frames
     try {
         // .. something bad
     } catch (ex) {
-        var error_stack = tracy(ex);
+        var error_stack = tracey(ex);
     }
 
 Tracy returns an array of frame objects with the following properties:

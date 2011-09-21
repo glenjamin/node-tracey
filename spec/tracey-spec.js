@@ -1,9 +1,9 @@
 var nodespec = require('nodespec');
 
-var tracy = require("../lib/tracy.js");
+var tracey = require("../lib/tracey.js");
 
-nodespec.describe("tracy()", function() {
-    this.subject("trace", function() { return tracy() });
+nodespec.describe("tracey()", function() {
+    this.subject("trace", function() { return tracey() });
     this.example("should return a stack trace", function() {
         this.assert.ok(this.trace instanceof Array);
         var trace1 = this.trace[0];
@@ -14,7 +14,7 @@ nodespec.describe("tracy()", function() {
     });
 
     this.context("when passed an exception", function() {
-        this.subject("trace", function() { return tracy(this.ex); });
+        this.subject("trace", function() { return tracey(this.ex); });
         this.subject("ex", function() { return new Error(); });
         this.example("should return a stack trace", function() {
             this.assert.ok(this.trace instanceof Array);
