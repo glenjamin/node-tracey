@@ -3,7 +3,7 @@
   "name": "tracey",
   "description": "Get a parsed stack trace for the current location",
   "homepage": "http://github.com/glenjamin/node-tracey",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/glenjamin/node-tracey.git"
