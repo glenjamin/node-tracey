@@ -27,6 +27,8 @@ nodespec.describe("tracey()", function() {
     });
 
     this.context("when using bind", function() {
+        // Under 0.4 this used to be "at native"
+        // But in later versions it gives a reasonable line
         this.subject("trace", function() {
             function foo(){ return tracey() };
             var bar = foo.bind(this);
@@ -35,10 +37,10 @@ nodespec.describe("tracey()", function() {
         this.example("should return a stack trace", function() {
             this.assert.ok(this.trace instanceof Array);
             var frame = this.trace[1];
-            this.assert.equal(frame.path, null);
-            this.assert.equal(frame.line, null);
-            this.assert.equal(frame.column, null);
-            this.assert.equal(frame.func, 'bound function');
+            this.assert.ok(frame.path);
+            this.assert.equal(frame.line, 35);
+            this.assert.equal(frame.column, 20);
+            this.assert.ok(frame.func);
         })
     });
 });

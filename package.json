@@ -19,10 +19,10 @@
     "test": "node ./spec/tracey-spec.js"
   },
   "engines": {
-    "node": "~v0.4.10"
+    "node": "*"
   },
   "dependencies": {},
   "devDependencies": {
-    "nodespec": "0.1.x"
+    "nodespec": "0.3.x"
   }
 }
